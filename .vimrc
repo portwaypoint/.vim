@@ -13,11 +13,7 @@ Plug 'sven-strothoff/vim-clang_doxygen'
 
 Plug 'Valloric/YouCompleteMe'
 
-<<<<<<< HEAD
 Plug 'SirVer/ultisnips'
-=======
-"::Plug 'SirVer/ultisnips'
->>>>>>> 6695f20... Initial .vimrc example and plug.vim plugin.
 
 call plug#end()
 
