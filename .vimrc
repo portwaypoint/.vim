@@ -5,6 +5,9 @@ Plug 'tpope/vim-sensible'
 Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
 
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
+
 Plug 'airblade/vim-gitgutter'
 
 Plug 'nathanaelkane/vim-indent-guides'
@@ -14,6 +17,10 @@ Plug 'sven-strothoff/vim-clang_doxygen'
 Plug 'Valloric/YouCompleteMe'
 
 Plug 'SirVer/ultisnips'
+
+Plug 'ctrlpvim/ctrlp.vim'
+
+Plug 'kergoth/vim-bitbake'
 
 call plug#end()
 
@@ -33,10 +40,29 @@ let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_color_change_percent=50
 let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{','}']]
 
+let g:ctrlp_root_markers = ['.repo','sources','src']
+let g:ctrlp_working_path_mode = 'rw' 
+
 " Activation based on file type
 augroup rainbow_lisp
   autocmd!
   autocmd FileType c,cpp,lisp,clojure,scheme RainbowParentheses
 augroup END
+
+" The Silver Searcher
+if executable('ag')
+    " Use ag over grep
+    set grepprg=ag\ --nogroup\ --nocolor\ --column
+    set grepformat=%f:%l:%c%m
+
+    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+    " ag is fast enough that CtrlP doesn't need to cache
+    let g:ctrlp_use_caching = 0
+endif
+
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 colo seoul256
