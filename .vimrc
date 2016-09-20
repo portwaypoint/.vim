@@ -14,13 +14,15 @@ Plug 'nathanaelkane/vim-indent-guides'
 
 Plug 'sven-strothoff/vim-clang_doxygen'
 
-Plug 'Valloric/YouCompleteMe'
-
 Plug 'SirVer/ultisnips'
 
 Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'kergoth/vim-bitbake'
+
+Plug 'vim-scripts/vim-misc'
+
+Plug 'vim-scripts/easytags.vim'
 
 call plug#end()
 
@@ -32,6 +34,9 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
+set tags=./tags;
+let g:easytags_dynamic_files = 1
+
 
 let g:seoul256_background = 233
 let g:indent_guides_start_level=2
@@ -40,7 +45,7 @@ let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_color_change_percent=50
 let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{','}']]
 
-let g:ctrlp_root_markers = ['.repo','sources','src']
+let g:ctrlp_root_markers = ['.repo','.git','sources','src','cellnovo']
 let g:ctrlp_working_path_mode = 'rw' 
 
 " Activation based on file type
@@ -64,5 +69,7 @@ endif
 
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+let g:ycm_confirm_extra_conf = 0
 
 colo seoul256
