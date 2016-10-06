@@ -24,6 +24,10 @@ Plug 'vim-scripts/vim-misc'
 
 Plug 'vim-scripts/easytags.vim'
 
+Plug 'sheerun/vim-polyglot'
+Plug 'heavenshell/vim-jsdoc'
+Plug 'othree/javascript-libraries-syntax.vim'
+
 call plug#end()
 
 
@@ -72,4 +76,8 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 let g:ycm_confirm_extra_conf = 0
 
+let g:used_javascript_libs = 'jquery,react'
+
 colo seoul256
+
+syntax on
