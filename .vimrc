@@ -14,13 +14,13 @@ Plug 'nathanaelkane/vim-indent-guides'
 
 Plug 'sven-strothoff/vim-clang_doxygen'
 
-Plug 'Valloric/YouCompleteMe'
-
 Plug 'SirVer/ultisnips'
 
 Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'kergoth/vim-bitbake'
+
+Plug 'justinmk/vim-sneak'
 
 call plug#end()
 
